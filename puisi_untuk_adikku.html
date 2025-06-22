@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puisi untuk Adikku Tersayang</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Font Inter */
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Memastikan body mengisi tinggi viewport, penting untuk pemusatan responsif */
+            background: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 100%); /* Latar belakang gradien yang menenangkan dan memotivasi */
+            margin: 0;
+            padding: 40px; /* Padding ditingkatkan agar outline lebih masuk ke dalam */
+            box-sizing: border-box;
+            /* Garis outline dihapus dari body dan akan diterapkan pada div konten utama */
+        }
+    </style>
+</head>
+<body>
+    <!-- Main content container: flexbox untuk centering, max-w-md untuk batas lebar pada layar besar, w-full untuk memenuhi layar kecil -->
+    <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl max-w-md w-full text-center transform hover:scale-105 transition-transform duration-300
+                border-4" style="border-color: var(--outline-color, #d1d5db);"> <!-- Border ditambahkan ke div konten putih ini, warna default gray-300 -->
+        <!-- Judul pesan motivasi: text-4xl (default) dan md:text-5xl (lebih besar pada medium screen ke atas) -->
+        <h1 id="mainHeading" class="text-4xl md:text-5xl font-extrabold text-blue-700 mb-6 drop-shadow-lg">
+            Untuk Adikku Tersayang 📖
+        </h1>
+        <!-- Pesan motivasi awal: text-xs (default) dan md:text-sm (lebih besar pada medium screen ke atas) -->
+        <p id="poetryMessage" class="text-xs md:text-sm text-gray-800 leading-relaxed mb-8 whitespace-pre-line">
+Di sudut kamar, dulu kau menangis
+Awal kuliah, beban terasa menindih.
+Rindu rumah, cemas meraja
+Tapi hati kecilmu, tak menyerah begitu saja.
+
+Kini senyummu merekah, cerah berseri
+Semester enam, telah kau lewati.
+Proposal diajukan, mimpi terbentang nyata
+Adikku sayang, kau luar biasa.
+
+Ingatkah dulu, setiap air mata jatuh?
+Kini berubah jadi kekuatan, tak pernah runtuh.
+Lihatlah dirimu, seberapa jauh melangkah
+Cinta dan bangga, selalu di setiap tingkah.
+
+Teruslah terbang, gapai bintang-bintang
+Jangan pernah ragu, hadapi setiap tantangan.
+Kami di sini, slalu mendukungmu sepenuh hati
+Adikku tersayang, kebanggaan abadi.
+
+Semangat terus, sayangku, jangan gentar
+Masa depan menanti, begitu lebar.
+Dengan cinta dan kasih, kami sertai setiap langkahmu
+Hingga wisuda nanti, impianmu jadi satu.
+        </p>
+        <!-- Loading indicator -->
+        <div id="loadingIndicator" class="hidden text-blue-600 font-semibold mb-4">
+            Menulis puisi inspiratif... ✍️
+        </div>
+        <!-- Button: padding responsif (py-3 px-6), shadow, rounded-full untuk tampilan responsif -->
+        <button id="generatePoemBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
+            ✨ Hasilkan Puisi Baru ✨
+        </button>
+        <!-- Teks penutup: text-md (default) dan md:text-lg (lebih besar pada medium screen ke atas) -->
+        <p class="text-md md:text-lg font-semibold text-blue-500 mt-8">
+            Dari Kakakmu,
+            <br>
+            AlfonsoLexy
+        </p>
+
+        <!-- Bagian untuk menambahkan akun media sosial -->
+        <div class="mt-6">
+            <p class="text-gray-700 text-lg mb-4">Jangan lupa kunjungi media sosial saya:</p>
+            <div class="flex justify-center space-x-4 flex-wrap gap-y-4">
+                <!-- Setiap link media sosial: flex flex-col items-center untuk ikon dan teks vertikal, mx-2 untuk sedikit jarak tambahan -->
+                <!-- Contoh link Instagram -->
+                <a href="https://www.instagram.com/AlfonsoLexy" target="_blank" class="flex flex-col items-center text-gray-600 hover:text-pink-500 transition-colors duration-300 mx-2">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <!-- Instagram SVG Icon: w-8 h-8 menjaga ukuran ikon konsisten -->
+                        <path fill-rule="evenodd" d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.32 4.147.614 3.374.921 2.673 1.396 2.054 2.054 1.396 2.673.921 3.374.614 4.147.32 4.905.132 5.775.072 7.053.015 8.333 0 8.74 0 12s.015 3.67.072 4.947c.06 1.278.248 2.148.542 2.91.307.773.782 1.474 1.44 2.054.619.619 1.32.994 2.093 1.288.769.293 1.639.481 2.917.542 1.278.057 1.69.072 4.947.072s3.67-.015 4.947-.072c1.278-.06 2.148-.248 2.91-.542.773-.307 1.474-.782 2.054-1.44.619-.619.994-1.32 1.288-2.093.293-.769.481-1.639.542-2.917.057-1.278.072-1.69.072-4.947s-.015-3.67-.072-4.947c-.06-1.278-.248-2.148-.542-2.91-.307-.773-.782-1.474-1.44-2.054C21.327 1.396 20.626.921 19.853.614c-.769-.293-1.639-.481-2.917-.542C15.67 0 15.26 0 12 0zm0 2.16c3.2 0 3.58.01 4.85.072 1.15.055 1.76.244 2.17.41.34.14.65.3.93.58.28.28.44.59.58.93.16.41.35 1.02.41 2.17.062 1.27.072 1.65.072 4.85s-.01 3.58-.072 4.85c-.055 1.15-.244 1.76-.41 2.17-.14.34-.3.65-.58.93-.28.28-.44.59-.58.93-.16.41-.35 1.02-.41 2.17-.062 1.27-.072 1.65-.072 4.85s.01-3.58.072-4.85c.055-1.15.244-1.76.41-2.17.14-.34.3-.65.58-.93.28-.28.59-.44.93-.58.41-.16 1.02-.35 2.17-.41 1.27-.062 1.65-.072 4.85-.072zM12 6.865c-2.889 0-5.235 2.346-5.235 5.235s2.346 5.235 5.235 5.235 5.235-2.346 5.235-5.235-2.346-5.235-5.235-5.235zm0 8.665c-1.896 0-3.43-1.534-3.43-3.43s1.534-3.43 3.43-3.43 3.43 1.534 3.43 3.43-1.534 3.43-3.43 3.43zm5.008-6.07a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-sm mt-1 text-gray-700">Instagram</p>
+                </a>
+                <!-- Contoh link Facebook -->
+                <a href="https://www.facebook.com/alexiz.raztha" target="_blank" class="flex flex-col items-center text-gray-600 hover:text-blue-700 transition-colors duration-300 mx-2">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <!-- Facebook SVG Icon -->
+                        <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.505 1.492-3.89 3.776-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-sm mt-1 text-gray-700">Facebook</p>
+                </a>
+                <!-- Contoh link Twitter (X) -->
+                <a href="https://twitter.com/AlexiusAlfonso" target="_blank" class="flex flex-col items-center text-gray-600 hover:text-gray-900 transition-colors duration-300 mx-2">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <!-- Twitter (X) SVG Icon -->
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.21-6.873L4.925 21.75H1.616l7.228-8.26L2.545 2.25H8.08L12 7.502 18.244 2.25zm.426 17.565h-2.462L6.11 4.254h2.462L18.67 19.815z" />
+                    </svg>
+                    <p class="text-sm mt-1 text-gray-700">Twitter</p>
+                </a>
+                <!-- Contoh link TikTok -->
+                <a href="https://www.tiktok.com/@__ilmupadi" target="_blank" class="flex flex-col items-center text-gray-600 hover:text-black transition-colors duration-300 mx-2">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <!-- TikTok SVG Icon -->
+                        <path d="M20.932 7.828c0-.071-.005-.142-.016-.211-.011-.07-.027-.138-.05-.205-.023-.067-.051-.132-.084-.195-.033-.063-.07-.123-.112-.181-.043-.058-.09-.113-.141-.165-.052-.052-.109-.101-.171-.147-.062-.046-.128-.087-.198-.124-.07-.037-.144-.067-.221-.088-.077-.021-.157-.035-.238-.042A.587.587 0 0019.25 6h-2.932a.587.587 0 00-.587.587v10.518c0 .324-.037.643-.109.957a.973.973 0 01-.109-.957l.001-.001h-.001V6.587c-.567.038-1.124.18-1.644.438a8.777 8.777 0 00-3.512 3.512c-.334 1.258-.516 2.658-.516 4.346v3.712c0 3.866 3.134 7 7 7s7-3.134 7-7V7.828zM12.75 3.39c-.567.038-1.124.18-1.644.438A8.777 8.777 0 007.594 7.34c-.334 1.258-.516 2.658-.516 4.346v3.712c0 3.866 3.134 7 7 7s7-3.134 7-7V7.828h-3.797z"/>
+                    </svg>
+                    <p class="text-sm mt-1 text-gray-700">TikTok</p>
+                </a>
+                <!-- Contoh link YouTube -->
+                <a href="https://www.youtube.com/@LiriknyaKamu" target="_blank" class="flex flex-col items-center text-gray-600 hover:text-red-600 transition-colors duration-300 mx-2">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <!-- YouTube SVG Icon -->
+                        <path fill-rule="evenodd" d="M19.61 6.55C19.98 5.76 20 5.43 20 4.75c0-.68-.02-1.01-.39-1.8A3.33 3.33 0 0017.31.39C16.52.02 16.19 0 15.5 0H8.5c-.69 0-1.02.02-1.8.39A3.33 3.33 0 00.39 6.55C.02 7.34 0 7.67 0 8.35v7.3c0 .68.02 1.01.39 1.8A3.33 3.33 0 006.69 23.61c.79.37 1.12.39 1.8.39h7.3c.68 0 1.01-.02 1.8-.39A3.33 3.33 0 0023.61 17.45c.37-.79.39-1.12.39-1.8v-7.3c0-.68-.02-1.01-.39-1.8zM9.54 16.69V7.31L16 12l-6.46 4.69z" clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-sm mt-1 text-gray-700">YouTube</p>
+                </a>
+                <!-- Tambahkan lebih banyak tautan media sosial di sini jika Anda mau -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mendapatkan referensi elemen DOM
+        const poetryMessageElement = document.getElementById('poetryMessage');
+        const generatePoemBtn = document.getElementById('generatePoemBtn');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const mainHeadingElement = document.getElementById('mainHeading'); // Mendapatkan referensi judul utama
+        const mainContentDiv = document.querySelector('.bg-white'); // Mendapatkan referensi div konten utama
+
+        // Fungsi untuk mengatur warna outline berdasarkan warna judul
+        function setOutlineColor() {
+            if (mainHeadingElement && mainContentDiv) {
+                const computedColor = getComputedStyle(mainHeadingElement).color;
+                mainContentDiv.style.borderColor = computedColor;
+            }
+        }
+
+        // Jalankan fungsi saat DOM selesai dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            setOutlineColor(); // Atur warna outline saat dimuat
+        });
+
+        // Menambahkan event listener untuk tombol "Hasilkan Puisi Baru"
+        generatePoemBtn.addEventListener('click', async () => {
+            // Mengosongkan teks pesan saat ini
+            poetryMessageElement.textContent = '';
+            // Menampilkan indikator loading
+            loadingIndicator.classList.remove('hidden');
+            // Menonaktifkan tombol untuk mencegah klik ganda selama proses
+            generatePoemBtn.disabled = true;
+
+            // Mendefinisikan prompt untuk Gemini API agar menghasilkan puisi
+            const prompt = "Tulis puisi motivasi yang positif, mendukung, dan inspiratif untuk seorang adik dalam bahasa Indonesia. Puisi harus memiliki 2 bait, dengan masing-masing bait 4 baris. Jangan menyertakan salam pembuka atau penutup, hanya isi puisi itu sendiri.";
+
+            // Menyiapkan riwayat chat untuk payload Gemini API
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+
+            // PENTING: Anda perlu mendapatkan Kunci API Gemini Anda dari Google AI Studio.
+            // Kunjungi: https://aistudio.google.com/app/apikey
+            // Buat kunci API baru, lalu tempelkan di antara tanda kutip di bawah ini.
+            // JANGAN bagikan kunci API Anda kepada siapa pun!
+            const apiKey = ""; // API key kosong akan otomatis diisi oleh Canvas di runtime
+
+            try {
+                // Membuat URL API untuk model Gemini 2.0 Flash
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                
+                // Melakukan panggilan fetch ke Gemini API
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                // Memeriksa apakah respons HTTP berhasil
+                if (!response.ok) {
+                    // Jika respons tidak OK (misal 400, 403, 404, 500), tangani secara spesifik
+                    const errorBody = await response.text(); // Ambil teks error dari body respons
+                    console.error('API Error Response:', response.status, response.statusText, errorBody);
+                    throw new Error(`Gagal menghubungi server. Status: ${response.status} - ${response.statusText}.`);
+                }
+
+                // Mengurai respons JSON
+                const result = await response.json();
+                console.log('Gemini API Response:', result); // Log penuh respons untuk debugging
+
+                // Mengekstrak teks yang dihasilkan dari respons
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    poetryMessageElement.textContent = text; // Memperbarui tampilan pesan
+                } else {
+                    // Pesan cadangan jika tidak ada konten yang valid dikembalikan
+                    poetryMessageElement.textContent = 'Maaf, API tidak mengembalikan puisi yang valid. Silakan coba lagi.';
+                }
+            } catch (error) {
+                // Mencatat dan menampilkan kesalahan jika panggilan API gagal
+                console.error('Kesalahan saat memanggil Gemini API:', error);
+                poetryMessageElement.textContent = `Terjadi kesalahan: ${error.message}. Coba lagi nanti.`;
+            } finally {
+                // Menyembunyikan indikator loading dan mengaktifkan kembali tombol
+                loadingIndicator.classList.add('hidden');
+                generatePoemBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
